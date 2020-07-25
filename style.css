@@ -1,0 +1,21 @@
+.nav-header-main{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+}
+
+.header-logo img{
+    margin: 0 auto;
+    width:800px;
+}
+
+ul#menu li{
+    display: inline;
+}
+
+.header-login form{
+    display: inline;
+}
+
+
