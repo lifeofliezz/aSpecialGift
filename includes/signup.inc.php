@@ -2,11 +2,13 @@
 
 if (isset($_POST['signup-submit'])){
     require 'dbh.inc.php';
+    require 'createPresentCode.inc.php';
 
      $userName = $_POST['uid'];
      $email = $_POST['mail'];
      $password = $_POST['pwd'];
      $passwordRepeat = $_POST['pwd-repeat'];
+     $presentCode = getPresentCode(7);
 
 
      //error handlers signup form
@@ -54,7 +56,7 @@ if (isset($_POST['signup-submit'])){
                  exit();
              }
              else{
-                 $sql = "INSERT INTO weddingcouple (loginName, emailWeddingCouple, pwdWeddingCouple)VALUES (?,?,?)";
+                 $sql = "INSERT INTO weddingcouple (loginName, emailWeddingCouple, pwdWeddingCouple, presentCode)VALUES (?,?,?,?)";
                  $stmt = mysqli_stmt_init($conn);
                  if (!mysqli_stmt_prepare($stmt, $sql)){
                      header("Location: ../signup.php?error=databaseerror");
@@ -64,7 +66,7 @@ if (isset($_POST['signup-submit'])){
                      //hash password
                      $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-                     mysqli_stmt_bind_param($stmt, "sss", $userName, $email,$hashedPwd );
+                     mysqli_stmt_bind_param($stmt, "ssss", $userName, $email,$hashedPwd, $presentCode );
                      mysqli_stmt_execute($stmt);
 
                      header("Location: ../signup.php?signup=success");

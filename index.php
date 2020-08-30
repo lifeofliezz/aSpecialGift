@@ -11,7 +11,10 @@
                     echo '<p class="login-status">you are logged in</p>';
                 }
                 else{
-                    echo '<p class="login-status">you are logged out </p>';
+                    echo '<ul>
+                            <li><a href="#">I have a code</a></li>
+                            <li><a href="signup.php">Make a weddingpresentlist</a></li>
+                            </ul>';
                 }
              ?>
          </section>

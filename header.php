@@ -18,9 +18,11 @@ session_start();
             </a>
             <ul id="menu">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">portfolio</a></li>
-                <li><a href="#">about me</a></li>
-                <li><a href="#">contact</a></li>
+                <li><a href="#">I have a code</a></li>
+                <?php
+                if (isset($_SESSION['userId'])) {
+                echo '<li><a href="#">Configure list</a></li>';}?>
+                <li><a href="#">About A special gift</a></li>
             </ul>
 
             <div class="header-login">
@@ -36,7 +38,7 @@ session_start();
                     <input type="password" name="pwd" placeholder="password" >
                     <button type="submit" name="login-submit">Login</button>
                 </form>
-                <a href="signup.php">Signup</a>';
+                <a href="signup.php">Make a weddingpresentlist</a>';
                 }
 
 
